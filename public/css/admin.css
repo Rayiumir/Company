@@ -113,4 +113,8 @@ summary::-webkit-details-marker{
     overflow: hidden;
 }
 
+/* سایدبار */
 
+btn.btn-active{
+    background-color: red;
+}

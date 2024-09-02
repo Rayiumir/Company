@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Request;
 
 class User extends Authenticatable
 {
@@ -50,5 +51,14 @@ class User extends Authenticatable
         if ($this->role === 'user') return 'کاربر عادی';
         if ($this->role === 'admin') return 'کاربر ادمین';
         if ($this->role === 'author') return 'کاربر نویسنده';
+    }
+
+    function activeMenu($uri = ''): string
+    {
+        $active = '';
+        if (Request::is(Request::segment(1) . '/' . $uri . '/*') || Request::is(Request::segment(1) . '/' . $uri) || Request::is($uri)) {
+            $active = 'btn-light';
+        }
+        return $active;
     }
 }

@@ -1,6 +1,6 @@
 <!-- Sidebar -->
 <div class="bg-light border-right" id="sidebar-wrapper">
-    <div class="sidebar-heading text-center">میزکار راییوم</div>
+    <div class="sidebar-heading text-center">میزکار رنجر</div>
     <div style="width: 250px">
         <div class="p-3">
             <div class="text-center">
@@ -13,10 +13,15 @@
                 <a href="" type="button" class="btn btn-danger rounded-5 btn-sm"><i class="fa-duotone fa-sign-out"></i> خروج</a>
             </div>
             <div class="d-grid gap-2 mt-3">
-                <a href="#" type="button" class="btn btn-light rounded-5 text-start"><i class="fa-duotone fa-home"></i> پیشخوان </a>
+                <a href="{{route('admin.index')}}" type="button" class="btn {{ request()->routeIs('admin.index') ? 'btn-light active' : 'btn-light' }} rounded-5 text-start"><i class="fa-duotone fa-home"></i> پیشخوان </a>
+                <a href="{{route('users.index')}}" type="button" class="btn {{ request()->routeIs('users.index') ? 'btn-light active' : 'btn-light' }} rounded-5 text-start"><i class="fa-duotone fa-users"></i> کاربران </a>
+
+
+
             </div>
         </div>
     </div>
 </div>
 <!-- /#sidebar-wrapper -->
+
 

@@ -90,9 +90,7 @@ Route::group(["middleware" => "web"], function ($router) {
 
 });
 
-Route::group(
-    ["prefix" => "admin", "middleware" => ["web"]],
-    function ($router) {
+Route::group(["prefix" => "admin", "middleware" => ["web"]], function ($router) {
 
         // Admin
         $router
@@ -112,7 +110,8 @@ Route::group(
 //            ->name("auth.logout")
 //            ->middleware("auth");
 
+        $router->resource("/users", \App\Http\Controllers\Admin\UserController::class);
     }
 );
 
-Route::get('/', [\App\Http\Controllers\Home\HomeController::class, 'index']);
+Route::get("/", [\App\Http\Controllers\Home\HomeController::class, "index"]);
