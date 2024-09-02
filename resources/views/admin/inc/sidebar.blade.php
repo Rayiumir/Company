@@ -4,6 +4,12 @@
     <div style="width: 250px">
         <div class="p-3">
             <div class="text-center">
+                <i class="fa-duotone fa-user fa-4x"></i>
+                <div class="mt-2 mb-2">
+                    <span class="badge text-bg-primary"><i class="fa-duotone fa-user me-2"></i>نام : {{ auth()->user()->name }}</span>
+                    <span class="badge text-bg-success"><i class="fa-duotone fa-lock me-2"></i>دسترسی :  {{ auth()->user()->getRoleName() }}</span>
+                </div>
+                <br>
                 <a href="" type="button" class="btn btn-danger rounded-5 btn-sm"><i class="fa-duotone fa-sign-out"></i> خروج</a>
             </div>
             <div class="d-grid gap-2 mt-3">

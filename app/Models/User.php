@@ -44,4 +44,11 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function getRoleName()
+    {
+        if ($this->role === 'user') return 'کاربر عادی';
+        if ($this->role === 'admin') return 'کاربر ادمین';
+        if ($this->role === 'author') return 'کاربر نویسنده';
+    }
 }
