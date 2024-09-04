@@ -51,4 +51,16 @@ class ServiceController extends Controller
 
         return to_route('services.index')->with($notification);
     }
+
+    public function destroy($id)
+    {
+        Service::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'بخش مورد نظر با موفقیت حذف شد.',
+            'alert-type' => 'success'
+        );
+
+        return to_route('services.index')->with($notification);
+    }
 }
