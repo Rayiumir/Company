@@ -2,5 +2,40 @@
     <x-slot name="title">
         - خدمات ما
     </x-slot>
-    تست
+    <button type="button" class="btn btn-primary rounded-5"><i class="fa-duotone fa-plus"></i> بخش جدید </button>
+    <div class="mt-3">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">عنوان</th>
+                    <th scope="col">کلاس آیکون</th>
+                    <th scope="col">متن</th>
+                    <th scope="col">data-aos</th>
+                    <th scope="col">aos-easing</th>
+                    <th scope="col">aos-delay</th>
+                    <th scope="col">aos-offset</th>
+                    <th scope="col">عملیات</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($services as $row)
+                    <tr>
+                        <th scope="row">{{$row->id}}</th>
+                        <td>{{$row->title}}</td>
+                        <td>{{$row->iconClass}}</td>
+                        <td>{{ \Illuminate\Support\Str::limit($row->body, 50) }}</td>
+                        <td>{{$row->aos}}</td>
+                        <td>{{$row->easing}}</td>
+                        <td>{{$row->delay}}</td>
+                        <td>{{$row->offset}}</td>
+                        <td>
+                            <i class="fa-duotone fa-edit text-secondary"></i>
+                            <i class="fa-duotone fa-trash text-danger"></i>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 </x-AdminLayout>
