@@ -21,8 +21,8 @@
                     <th scope="row">{{$row->id}}</th>
                     <td>{{$row->name}}</td>
                     <td>{{$row->email}}</td>
-                    <td>{{$row->role}}</td>
-                    <td>@mdo</td>
+                    <td>{{$row->getRoleName()}}</td>
+                    <td>{{$row->getCreatedAtShamsi()}}</td>
                     <td class="text-center">
                         <a href="{{ route('users.edit', $row->id) }}" class="text-decoration-none text-secondary me-2"><i class="fa-duotone fa-user-edit"></i></a>
                         <a class="text-decoration-none text-danger" onclick="event.preventDefault();document.getElementById('trash-{{$row->id}}').submit()"><i class="fa-duotone fa-trash"></i></a>

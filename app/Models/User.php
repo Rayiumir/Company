@@ -54,12 +54,8 @@ class User extends Authenticatable
         if ($this->role === 'author') return 'کاربر نویسنده';
     }
 
-    function activeMenu($uri = ''): string
+    public function getCreatedAtShamsi(): string
     {
-        $active = '';
-        if (Request::is(Request::segment(1) . '/' . $uri . '/*') || Request::is(Request::segment(1) . '/' . $uri) || Request::is($uri)) {
-            $active = 'btn-light';
-        }
-        return $active;
+        return verta($this->created_at)->format('Y/m/d');
     }
 }
