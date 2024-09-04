@@ -3,7 +3,7 @@
         - مدیریت کاربران
     </x-slot>
 
-    <button type="button" class="btn btn-primary rounded-5"><i class="fa-duotone fa-plus"></i> کاربر جدید </button>
+    <a href="{{ route('users.create') }}" type="button" class="btn btn-primary rounded-5"><i class="fa-duotone fa-plus"></i> کاربر جدید </a>
     <table class="table table-striped table-bordered mt-3">
         <thead>
         <tr>
