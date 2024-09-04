@@ -38,5 +38,6 @@
                 @endforeach
             </tbody>
         </table>
+        {{ $services->links() }}
     </div>
 </x-AdminLayout>
