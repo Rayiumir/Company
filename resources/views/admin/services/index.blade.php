@@ -2,7 +2,7 @@
     <x-slot name="title">
         - خدمات ما
     </x-slot>
-    <button type="button" class="btn btn-primary rounded-5"><i class="fa-duotone fa-plus"></i> بخش جدید </button>
+    <a href="{{ route('services.create') }}" type="button" class="btn btn-primary rounded-5"><i class="fa-duotone fa-plus"></i> بخش جدید </a>
     <div class="mt-3">
         <table class="table">
             <thead>

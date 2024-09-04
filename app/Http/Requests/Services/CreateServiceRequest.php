@@ -11,7 +11,7 @@ class CreateServiceRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,13 @@ class CreateServiceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => ['required', 'string', 'max:255'],
+            'iconClass' => ['required', 'max:255'],
+            'body' => ['required'],
+            'aos' => ['required', 'max:255'],
+            'easing' => ['required', 'max:255'],
+            'delay' => ['required', 'max:255'],
+            'offset' => ['required', 'max:255']
         ];
     }
 }
