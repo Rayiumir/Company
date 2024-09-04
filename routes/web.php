@@ -111,6 +111,7 @@ Route::group(["prefix" => "admin", "middleware" => ["web"]], function ($router) 
 //            ->middleware("auth");
 
         $router->resource("/users", \App\Http\Controllers\Admin\UserController::class);
+        $router->resource('/services', \App\Http\Controllers\Admin\ServiceController::class);
     }
 );
 
