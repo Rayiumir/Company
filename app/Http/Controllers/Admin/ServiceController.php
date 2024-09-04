@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Services\CreateServiceRequest;
+use App\Http\Requests\Services\UpdateServiceRequest;
 use App\Models\Service;
 
 class ServiceController extends Controller
@@ -26,6 +27,25 @@ class ServiceController extends Controller
 
         $notification = array(
             'message' => 'بخش جدید با موفقیت ایجاد شد.',
+            'alert-type' => 'success'
+        );
+
+        return to_route('services.index')->with($notification);
+    }
+
+    public function edit(Service $service)
+    {
+        return view('admin.services.edit', compact('service'));
+    }
+
+    public function update(UpdateServiceRequest $request, Service $service)
+    {
+        $service->update(
+            $request->validated()
+        );
+
+        $notification = array(
+            'message' => 'بخش  مورد نظر با موفقیت ویرایش شد.',
             'alert-type' => 'success'
         );
 

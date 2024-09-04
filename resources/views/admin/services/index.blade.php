@@ -29,8 +29,8 @@
                         <td>{{$row->easing}}</td>
                         <td>{{$row->delay}}</td>
                         <td>{{$row->offset}}</td>
-                        <td>
-                            <i class="fa-duotone fa-edit text-secondary"></i>
+                        <td class="text-center">
+                            <a href="{{ route('services.edit', $row->id) }}" class="text-decoration-none text-secondary"><i class="fa-duotone fa-edit text-secondary"></i></a>
                             <i class="fa-duotone fa-trash text-danger"></i>
                         </td>
                     </tr>
