@@ -54,4 +54,16 @@ class UserController extends Controller
 
         return to_route('users.index')->with($notification);
     }
+
+    public function destroy($id)
+    {
+        User::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'کاربر مورد نظر با موفقیت حذف شد.',
+            'alert-type' => 'success'
+        );
+
+        return to_route('users.index')->with($notification);
+    }
 }

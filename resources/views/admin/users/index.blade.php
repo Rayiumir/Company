@@ -25,7 +25,8 @@
                     <td>@mdo</td>
                     <td class="text-center">
                         <a href="{{ route('users.edit', $row->id) }}" class="text-decoration-none text-secondary me-2"><i class="fa-duotone fa-user-edit"></i></a>
-                        <a href="#" class="text-decoration-none text-danger"><i class="fa-duotone fa-trash"></i></a>
+                        <a class="text-decoration-none text-danger" onclick="event.preventDefault();document.getElementById('trash-{{$row->id}}').submit()"><i class="fa-duotone fa-trash"></i></a>
+                        <form id="trash-{{$row->id}}" action="{{ route('users.destroy', $row->id) }}" method="POST">@csrf @method('DELETE')</form>
                     </td>
                 </tr>
             @endforeach
