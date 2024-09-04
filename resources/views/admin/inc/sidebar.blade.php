@@ -14,7 +14,7 @@
             </div>
             <div class="d-grid gap-2 mt-3">
                 <a href="{{route('admin.index')}}" type="button" class="btn {{ request()->routeIs('admin.index') ? 'btn-light active' : 'btn-light' }} rounded-5 text-start"><i class="fa-duotone fa-home"></i> پیشخوان </a>
-                <a href="{{route('users.index')}}" type="button" class="btn {{ request()->routeIs('users.index') ? 'btn-light active' : 'btn-light' }} rounded-5 text-start"><i class="fa-duotone fa-users"></i> کاربران </a>
+                <a href="{{route('users.index')}}" type="button" class="btn {{ request()->routeIs('users.index') || request()->routeIs('users.create') || request()->routeIs('users.edit') ? 'btn-light active' : 'btn-light' }} rounded-5 text-start"><i class="fa-duotone fa-users"></i> کاربران </a>
 
             </div>
         </div>

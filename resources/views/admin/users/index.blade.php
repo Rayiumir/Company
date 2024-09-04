@@ -31,4 +31,5 @@
             @endforeach
         </tbody>
     </table>
+    {{$users->links()}}
 </x-AdminLayout>
