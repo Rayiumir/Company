@@ -112,6 +112,7 @@ Route::group(["prefix" => "admin", "middleware" => ["web"]], function ($router) 
 
         $router->resource("/users", \App\Http\Controllers\Admin\UserController::class);
         $router->resource('/services', \App\Http\Controllers\Admin\ServiceController::class);
+        $router->resource('/portfolios', \App\Http\Controllers\Admin\PortfolioController::class);
     }
 );
 
