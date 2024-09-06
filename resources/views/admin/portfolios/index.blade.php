@@ -30,7 +30,9 @@
                         <td>{{ $row->getCreatedAtShamsi() }}</td>
                         <td class="text-center">
                             <a href="{{ route('portfolios.edit', $row->id) }}" class="text-decoration-none text-secondary"><i class="fa-duotone fa-edit"></i></a>
-                            <i class="fa-duotone fa-trash text-danger"></i>
+                            <a class="text-decoration-none text-danger" onclick="event.preventDefault();document.getElementById('trash-{{$row->id}}').submit()"><i class="fa-duotone fa-trash"></i></a>
+                            <form id="trash-{{$row->id}}" action="{{ route('portfolios.destroy', $row->id) }}" method="POST">@csrf @method('DELETE')</form>
+
                         </td>
                     </tr>
                 @endforeach

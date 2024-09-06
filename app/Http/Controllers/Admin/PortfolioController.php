@@ -72,4 +72,15 @@ class PortfolioController extends Controller
         return to_route('portfolios.index')->with($notification);
     }
 
+    public function destroy($id)
+    {
+        Portfolio::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'نمونه کار مورد نظر با موفقیت حذف شد.',
+            'alert-type' => 'success'
+        );
+
+        return to_route('portfolios.index')->with($notification);
+    }
 }
