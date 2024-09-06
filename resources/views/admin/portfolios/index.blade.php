@@ -4,7 +4,7 @@
     </x-slot>
 
     <a href="{{ route('portfolios.create') }}" type="button" class="btn btn-primary rounded-5"><i class="fa-duotone fa-plus"></i> نمونه کار جدید </a>
-    <button type="button" class="btn btn-primary rounded-5"><i class="fa-duotone fa-list-tree"></i> دسته بندی </button>
+    <a href="{{ route('category.index') }}" type="button" class="btn btn-primary rounded-5"><i class="fa-duotone fa-list-tree"></i> دسته بندی </a>
 
     <div class="mt-3">
         <table class="table table-striped table-bordered">
@@ -32,7 +32,6 @@
                             <a href="{{ route('portfolios.edit', $row->id) }}" class="text-decoration-none text-secondary"><i class="fa-duotone fa-edit"></i></a>
                             <a class="text-decoration-none text-danger" onclick="event.preventDefault();document.getElementById('trash-{{$row->id}}').submit()"><i class="fa-duotone fa-trash"></i></a>
                             <form id="trash-{{$row->id}}" action="{{ route('portfolios.destroy', $row->id) }}" method="POST">@csrf @method('DELETE')</form>
-
                         </td>
                     </tr>
                 @endforeach
