@@ -28,8 +28,8 @@
                         <td>{{ $row->title }}</td>
                         <td>{{ $row->body }}</td>
                         <td>{{ $row->getCreatedAtShamsi() }}</td>
-                        <td>
-                            <i class="fa-duotone fa-edit text-secondary"></i>
+                        <td class="text-center">
+                            <a href="{{ route('portfolios.edit', $row->id) }}" class="text-decoration-none text-secondary"><i class="fa-duotone fa-edit"></i></a>
                             <i class="fa-duotone fa-trash text-danger"></i>
                         </td>
                     </tr>

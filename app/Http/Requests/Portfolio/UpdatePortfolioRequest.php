@@ -11,7 +11,7 @@ class UpdatePortfolioRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,15 @@ class UpdatePortfolioRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => ['required', 'string', 'max:255'],
+            'slug' => ['required', 'string', 'max:255'],
+            'img' => ['required', 'image'],
+            'body' => ['required'],
+            'tech' => ['required', 'string', 'max:255'],
+            'time' => ['required', 'string', 'max:255'],
+            'support' => ['required', 'string', 'max:255'],
+            'cost' => ['required', 'string', 'max:255'],
+            'lang' => ['required', 'string', 'max:255']
         ];
     }
 }
