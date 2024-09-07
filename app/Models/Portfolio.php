@@ -26,4 +26,9 @@ class Portfolio extends Model
     {
         return verta($this->created_at)->format('Y/m/d');
     }
+
+    public function portfoliocategories(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(PortfolioCategory::class);
+    }
 }

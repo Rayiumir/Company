@@ -15,7 +15,7 @@
                                 <label for="Input1" class="form-label">عنوان :</label>
                                 <input type="text" name="title" class="form-control rounded-5 @error('title') is-invalid @enderror" id="Input1" placeholder="">
                                 @error('title')
-                                <span class="invalid-feedback" role="alert">
+                                    <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
@@ -26,7 +26,7 @@
                                 <label for="Input1" class="form-label">نامک :</label>
                                 <input type="text" name="slug" class="form-control rounded-5 @error('slug') is-invalid @enderror" id="Input1" placeholder="">
                                 @error('slug')
-                                <span class="invalid-feedback" role="alert">
+                                    <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
@@ -48,7 +48,7 @@
                         <label for="Input3" class="form-label">متن :</label>
                         <textarea name="body" class="form-control rounded-5 @error('body') is-invalid @enderror" id="Input3" placeholder=""></textarea>
                         @error('body')
-                        <span class="invalid-feedback" role="alert">
+                            <span class="invalid-feedback" role="alert">
                                  <strong>{{ $message }}</strong>
                             </span>
                         @enderror
@@ -59,7 +59,7 @@
                                 <label for="Input1" class="form-label">تکنولوژی استفاده شده :</label>
                                 <input type="text" name="tech" class="form-control rounded-5 @error('tech') is-invalid @enderror" id="Input1" placeholder="">
                                 @error('tech')
-                                <span class="invalid-feedback" role="alert">
+                                    <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
@@ -70,7 +70,7 @@
                                 <label for="Input1" class="form-label">زمان تکمیل :</label>
                                 <input type="text" name="time" class="form-control rounded-5 @error('time') is-invalid @enderror" id="Input1" placeholder="">
                                 @error('time')
-                                <span class="invalid-feedback" role="alert">
+                                    <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
@@ -82,7 +82,7 @@
                                 <label for="Input1" class="form-label">پشتیبانی :</label>
                                 <input type="text" name="support" class="form-control rounded-5 @error('support') is-invalid @enderror" id="Input1" placeholder="">
                                 @error('support')
-                                <span class="invalid-feedback" role="alert">
+                                    <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
@@ -94,7 +94,7 @@
                                 <label for="Input1" class="form-label">هزینه پروژه :</label>
                                 <input type="text" name="cost" class="form-control rounded-5 @error('cost') is-invalid @enderror" id="Input1" placeholder="">
                                 @error('cost')
-                                <span class="invalid-feedback" role="alert">
+                                    <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
@@ -106,7 +106,7 @@
                                 <label for="Input1" class="form-label">زبان پروژه :</label>
                                 <input type="text" name="lang" class="form-control rounded-5 @error('lang') is-invalid @enderror" id="Input1" placeholder="">
                                 @error('lang')
-                                <span class="invalid-feedback" role="alert">
+                                    <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
