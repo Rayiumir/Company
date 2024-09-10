@@ -54,11 +54,27 @@
                         @enderror
                     </div>
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="Input1" class="form-label">تکنولوژی استفاده شده :</label>
                                 <input type="text" name="tech" class="form-control rounded-5 @error('tech') is-invalid @enderror" id="Input1" placeholder="">
                                 @error('tech')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="input3" class="form-label">انتخاب دسته</label>
+                                <select id="input3" class="form-select rounded-5 @error('portfolio_category_id') is-invalid @enderror" name="portfolio_category_id">
+                                    <option selected disabled>انتخاب کنید ... </option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                    @endforeach
+                                </select>
+                                @error('portfolio_category_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

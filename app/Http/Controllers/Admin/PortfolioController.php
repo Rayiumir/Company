@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Portfolio\CreatePortfolioRequest;
 use App\Http\Requests\Portfolio\UpdatePortfolioRequest;
 use App\Models\Portfolio;
+use App\Models\PortfolioCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -20,7 +21,8 @@ class PortfolioController extends Controller
 
     public function create()
     {
-        return view('admin.portfolios.create');
+        $categories = PortfolioCategory::all();
+        return view('admin.portfolios.create', compact('categories'));
     }
 
     public function store(CreatePortfolioRequest $request)

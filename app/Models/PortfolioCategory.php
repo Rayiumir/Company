@@ -22,7 +22,7 @@ class PortfolioCategory extends Model
 
     public function parent(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->belongsTo(PortfolioCategory::class, 'category_id');
+        return $this->belongsTo(PortfolioCategory::class, 'portfolio_category_id');
     }
 
     public function getParentName()
