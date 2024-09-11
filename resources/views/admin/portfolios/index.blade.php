@@ -4,7 +4,7 @@
     </x-slot>
 
     <a href="{{ route('portfolios.create') }}" type="button" class="btn btn-primary rounded-5"><i class="fa-duotone fa-plus"></i> نمونه کار جدید </a>
-    <a href="{{ route('portfoliosCategory.index') }}" type="button" class="btn btn-primary rounded-5"><i class="fa-duotone fa-list-tree"></i> دسته بندی </a>
+    <a href="{{ route('portfolioCategory.index') }}" type="button" class="btn btn-primary rounded-5"><i class="fa-duotone fa-list-tree"></i> دسته بندی </a>
 
     <div class="mt-3">
         <table class="table table-striped table-bordered">

@@ -45,20 +45,18 @@
                 </tr>
                 </thead>
                 <tbody>
-                    @forelse($portfolioCategory as $row)
+                    @foreach($portfolioCategory as $row)
                         <tr>
                             <th scope="row" style="width: 50px">{{ $row->id }}</th>
                             <td>{{ $row->name }}</td>
                             <td>{{ $row->slug }}</td>
                             <td class="text-center" style="width: 100px">
                                 <a href="{{ route('portfolioCategory.edit', $row->id) }}" class="text-decoration-none text-secondary"><i class="fa-duotone fa-edit"></i></a>
+                                <a class="text-decoration-none text-danger" onclick="event.preventDefault();document.getElementById('trash-{{$row->id}}').submit()"><i class="fa-duotone fa-trash"></i></a>
+                                <form id="trash-{{$row->id}}" action="{{ route('portfolioCategory.destroy', $row->id) }}" method="POST">@csrf @method('DELETE')</form>
                             </td>
                         </tr>
-                    @empty
-                        <div class="alert alert-warning rounded-4">
-                            دسته بندی تعریف نشده است
-                        </div>
-                    @endforelse
+                    @endforeach
                 </tbody>
             </table>
         </div>

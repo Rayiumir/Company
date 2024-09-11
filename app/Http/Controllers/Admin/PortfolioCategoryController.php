@@ -52,4 +52,16 @@ class PortfolioCategoryController extends Controller
 
         return to_route('portfolioCategory.index')->with($notification);
     }
+
+    public function destroy($id)
+    {
+        PortfolioCategory::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'دسته مورد نظر با موفقیت حذف شد.',
+            'alert-type' => 'success'
+        );
+
+        return to_route('portfolioCategory.index')->with($notification);
+    }
 }
