@@ -19,14 +19,4 @@ class PortfolioCategory extends Model
     {
         return $this->belongsToMany(Portfolio::class);
     }
-
-    public function parent(): \Illuminate\Database\Eloquent\Relations\BelongsTo
-    {
-        return $this->belongsTo(PortfolioCategory::class, 'portfolio_category_id');
-    }
-
-    public function getParentName()
-    {
-        return is_null($this->parent) ? 'ندارد' : $this->parent->name;
-    }
 }

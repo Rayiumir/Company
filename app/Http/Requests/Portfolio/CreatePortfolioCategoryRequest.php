@@ -24,7 +24,7 @@ class CreatePortfolioCategoryRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:255'],
             'slug' => ['required', 'string', 'max:255', 'unique:portfolio_categories'],
-            'category_id' => ['nullable', 'exists:portfolio_categories,id']
+            'portfolio_category_id' => ['nullable', 'exists:portfolio_categories,id']
         ];
     }
 }

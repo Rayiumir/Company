@@ -11,7 +11,7 @@ class UpdatePortfolioCategoryRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,8 @@ class UpdatePortfolioCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => ['required', 'string', 'max:255'],
+            'portfolio_category_id' => ['nullable', 'exists:portfolio_categories,id']
         ];
     }
 }

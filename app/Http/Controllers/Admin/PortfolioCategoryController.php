@@ -4,16 +4,15 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Portfolio\CreatePortfolioCategoryRequest;
+use App\Http\Requests\Portfolio\UpdatePortfolioCategoryRequest;
 use App\Models\PortfolioCategory;
-use Illuminate\Http\Request;
 
 class PortfolioCategoryController extends Controller
 {
     public function index()
     {
-        $PortfolioCategories = PortfolioCategory::with('parent')->paginate();
-        $CategoryParent = PortfolioCategory::where('portfolio_category_id', null)->get();
-        return view('admin.portfolios.category.index', compact('PortfolioCategories', 'CategoryParent'));
+        $portfolioCategory = PortfolioCategory::query()->paginate();
+        return view('admin.portfolioCategory.index', compact('portfolioCategory'));
     }
 
     public function create()
@@ -33,5 +32,24 @@ class PortfolioCategoryController extends Controller
         );
 
         return back()->with($notification);
+    }
+
+    public function edit(PortfolioCategory $portfolioCategory)
+    {
+        return view('admin.portfolioCategory.edit', compact('portfolioCategory'));
+    }
+
+    public function update(UpdatePortfolioCategoryRequest $request, PortfolioCategory $portfolioCategory)
+    {
+        $portfolioCategory->update(
+            $request->validated()
+        );
+
+        $notification = array(
+            'message' => 'دسته بندی با موفقیت ویرایش شد.',
+            'alert-type' => 'success'
+        );
+
+        return to_route('portfolioCategory.index')->with($notification);
     }
 }
