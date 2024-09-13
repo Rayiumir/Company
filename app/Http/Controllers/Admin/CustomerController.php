@@ -3,21 +3,20 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Post\CreatePostRequest;
-use App\Http\Requests\Post\UpdatePostRequest;
-use App\Models\Category;
-use App\Models\Post;
+use App\Http\Requests\Customer\CreateCustomerRequest;
+use App\Http\Requests\Customer\UpdateCustomerRequest;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class CustomerController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $posts = Post::query()->paginate(5);
-        return view('admin.posts.index', compact('posts'));
+        $customers = Customer::query()->paginate(5);
+        return view('admin.customers.index', compact('customers'));
     }
 
     /**
@@ -25,40 +24,37 @@ class PostController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
-        return view('admin.posts.create', compact('categories'));
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CreatePostRequest $request)
+    public function store(CreateCustomerRequest $request)
     {
         $data = $request->validated();
 
         if ($request->hasFile('img')) {
             $file = $request->file('img');
             $file_name = $file->getClientOriginalName();
-            $file->storeAs('posts/img', $file_name, 'public_files');
+            $file->storeAs('customers/img', $file_name, 'public_files');
             $data['img'] = $file_name;
         }
 
-        $data['user_id'] = auth()->user()->id;
-
-        Post::create($data);
+        Customer::create($data);
 
         $notification = array(
-            'message' => 'پست جدید با موفقیت ایجاد شد.',
+            'message' => 'مشتری جدید با موفقیت ایجاد شد.',
             'alert-type' => 'success'
         );
 
-        return to_route('posts.index')->with($notification);
+        return to_route('customers.index')->with($notification);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Post $post)
+    public function show(Customer $customer)
     {
         //
     }
@@ -66,34 +62,34 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Post $post)
+    public function edit(Customer $customer)
     {
-        $categories = Category::all();
-        return view('admin.posts.edit', compact('post', 'categories'));
+        $customers = Customer::query()->paginate(5);
+        return view('admin.customers.edit', compact('customer', 'customers'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePostRequest $request, Post $post)
+    public function update(UpdateCustomerRequest $request, Customer $customer)
     {
         $data = $request->validated();
 
         if ($request->hasFile('img')) {
             $file = $request->file('img');
             $file_name = $file->getClientOriginalName();
-            $file->storeAs('posts/img', $file_name, 'public_files');
+            $file->storeAs('customers/img', $file_name, 'public_files');
             $data['img'] = $file_name;
         }
 
-        $post->update($data);
+        $customer->update($data);
 
         $notification = array(
-            'message' => 'پست با موفقیت ویرایش شد.',
+            'message' => 'مشتری با موفقیت ویرایش شد.',
             'alert-type' => 'success'
         );
 
-        return to_route('posts.index')->with($notification);
+        return to_route('customers.index')->with($notification);
     }
 
     /**
@@ -101,13 +97,13 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        Post::findOrFail($id)->delete();
+        Customer::findOrFail($id)->delete();
 
         $notification = array(
-            'message' => 'پست مورد نظر با موفقیت حذف شد.',
+            'message' => 'مشتری مورد نظر با موفقیت حذف شد.',
             'alert-type' => 'success'
         );
 
-        return to_route('posts.index')->with($notification);
+        return to_route('customers.index')->with($notification);
     }
 }
