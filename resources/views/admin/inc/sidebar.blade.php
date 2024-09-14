@@ -20,6 +20,7 @@
                 <a href="{{route('portfolios.index')}}" type="button" class="btn {{ request()->routeIs('portfolios.index') || request()->routeIs('portfolios.create') || request()->routeIs('portfolios.edit') ? 'btn-light active' : 'btn-light' }} rounded-5 text-start"><i class="fa-duotone fa-file-archive"></i> نمونه کارها </a>
                 <a href="{{route('posts.index')}}" type="button" class="btn {{ request()->routeIs('posts.index') || request()->routeIs('posts.create') || request()->routeIs('posts.edit') ? 'btn-light active' : 'btn-light' }} rounded-5 text-start"><i class="fa-duotone fa-blog"></i> پست ها </a>
                 <a href="{{route('customers.index')}}" type="button" class="btn {{ request()->routeIs('customers.index') || request()->routeIs('customers.edit') ? 'btn-light active' : 'btn-light' }} rounded-5 text-start"><i class="fa-duotone fa-user-friends"></i> مشتریان ما </a>
+                <a href="{{route('comments.index')}}" type="button" class="btn {{ request()->routeIs('comments.index') ? 'btn-light active' : 'btn-light' }} rounded-5 text-start"><i class="fa-duotone fa-comment"></i> نظرات </a>
             </div>
         </div>
     </div>

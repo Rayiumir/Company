@@ -117,6 +117,7 @@ Route::group(["prefix" => "admin", "middleware" => ["web"]], function ($router) 
         $router->resource('/categories', \App\Http\Controllers\Admin\CategoryController::class);
         $router->resource('/posts', \App\Http\Controllers\Admin\PostController::class);
         $router->resource('/customers', \App\Http\Controllers\Admin\CustomerController::class);
+        $router->resource('/comments', \App\Http\Controllers\Admin\CommentController::class);
     }
 );
 
