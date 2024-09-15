@@ -41,7 +41,6 @@
                                 <div class="col-6 col-md-6">
                                     <a class="text-decoration-none text-danger" onclick="event.preventDefault();document.getElementById('trash-{{$row->id}}').submit()"><i class="fa-duotone fa-trash"></i></a>
                                     <form id="trash-{{$row->id}}" action="{{ route('comments.destroy', $row->id) }}" method="POST">@csrf @method('DELETE')</form>
-
                                 </div>
                             </div>
 
@@ -50,5 +49,6 @@
                 @endforeach
             </tbody>
         </table>
+        {{ $comments->appends(request()->query())->links() }}
     </div>
 </x-AdminLayout>
