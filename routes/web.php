@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\Home\SinglePortfolioController;
 use Illuminate\Support\Facades\Route;
 
 //Route::get('/', function () {
@@ -121,4 +122,5 @@ Route::group(["prefix" => "admin", "middleware" => ["web"]], function ($router) 
     }
 );
 
-Route::get("/", [\App\Http\Controllers\Home\HomeController::class, "index"]);
+Route::get("/", [\App\Http\Controllers\Home\HomeController::class, "index"])->name('home.index');
+Route::get('/portfolios/{slug}', [SinglePortfolioController::class, 'show'])->name('portfolio.single');

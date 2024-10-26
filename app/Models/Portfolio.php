@@ -29,6 +29,6 @@ class Portfolio extends Model
 
     public function portfoliocategories(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
-        return $this->belongsToMany(PortfolioCategory::class);
+        return $this->belongsToMany(PortfolioCategory::class, 'portfolio_category_id');
     }
 }

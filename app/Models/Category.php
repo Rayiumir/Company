@@ -25,3 +25,5 @@ class Category extends Model
         return is_null($this->parent) ? 'ندارد' : $this->parent->name;
     }
 }
+
+
